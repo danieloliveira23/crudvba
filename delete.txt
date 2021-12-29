@@ -1,0 +1,46 @@
+
+Sub Deleteuser()
+
+
+For Each cell In Range("ID")
+
+
+cell.Select
+
+    If ActiveCell.Value = crud.cod.Text Then
+    
+        Selection.EntireRow.Delete
+        Cells(6, 1).Select
+        crud.cod.Text = ""
+        crud.nome.Text = ""
+        crud.data.Text = ""
+        crud.endereco.Text = ""
+        crud.numero.Text = ""
+        crud.numero.Text = ""
+        crud.complemento.Text = ""
+        Sheets("FILTER").Visible = False
+        MsgBox "Usuário removido com sucesso !", vbInformation
+        
+    
+    Else
+    
+        'MsgBox "Usuario não informado", vbCritical
+        
+    
+    End If
+    
+
+
+Next
+
+
+    If Range("Id").Value = "" And Range("A1").Rows.Count <= 1 Then
+    
+    Range("LAST").Value = 0
+    Range("CHECK").Value = 1
+    
+    Else
+    
+    End If
+    
+End Sub

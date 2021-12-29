@@ -1,0 +1,7 @@
+Sub Gráfico2_Clique()
+
+crud.Show
+
+
+
+End Sub

@@ -1,0 +1,22 @@
+Private Sub UserForm_Initialize()
+
+'keep
+Application.GoTo Reference:="cad"
+
+    x = Selection.Row
+    
+    y = Selection.CurrentRegion.Rows.Count + x - 2
+    
+    
+    Range("CHECK").Value = 1
+    
+    
+    'Range("I1").Value = y
+
+
+
+cod.RowSource = "database!A7:A" & y
+
+
+
+End Sub

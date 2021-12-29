@@ -1,0 +1,28 @@
+Sub updateuser()
+
+For Each cell In Range("id")
+
+    cell.Select
+    If cell.Value = crud.cod.Text Then
+    
+    cell.Offset(0, 1).Value = crud.nome.Text
+    cell.Offset(0, 2).NumberFormat = "dd/mm/yyyy"
+    cell.Offset(0, 2).NumberFormat = "@"
+    cell.Offset(0, 2).Value = Left(crud.data.Text, 10)
+
+    cell.Offset(0, 3).Value = crud.endereco.Text
+    cell.Offset(0, 4).Value = crud.numero.Text
+    cell.Offset(0, 5).Value = crud.complemento.Text
+    MsgBox "Alterado com sucesso", vbInformation
+    
+
+    Else
+    
+    
+    
+    
+    End If
+    
+Next
+
+End Sub

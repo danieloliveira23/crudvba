@@ -1,0 +1,16 @@
+Private Sub data_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
+
+'keep
+If Len(data) = 2 Or Len(data) = 5 Then
+
+    data.Text = data.Text & "/"
+    
+Else
+
+
+End If
+
+
+
+
+End Sub

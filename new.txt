@@ -1,0 +1,13 @@
+Sub novo()
+
+crud.cod.Text = ""
+crud.nome.Text = ""
+crud.data.Text = ""
+crud.endereco.Text = ""
+crud.numero.Text = ""
+crud.complemento.Text = ""
+
+Range("CHECK") = 1
+
+
+End Sub

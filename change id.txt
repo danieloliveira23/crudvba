@@ -1,0 +1,32 @@
+
+Private Sub cod_Change()
+
+
+Application.ScreenUpdating = False
+
+        'MEthod to search for id
+        On Error Resume Next
+        Sheets("FILTER").Visible = True
+        Sheets("FILTER").Cells.Clear
+        Sheets("database").Range("A6").CurrentRegion.Copy Destination:=Sheets("FILTER").Range("A1")
+        
+        Sheets("FILTER").Select
+        Range("H1").Value = Range("A1").Value
+        Range("H2").Value = crud.cod
+        
+        Range("A1").CurrentRegion.AdvancedFilter Action:=xlFilterCopy, CriteriaRange:=Range("H1").CurrentRegion, CopyToRange:=Range("J1"), Unique:=False
+        
+        crud.nome.Text = Sheets("FILTER").Range("k2").Value
+        crud.data.Text = Sheets("FILTER").Range("L2").Value
+        crud.endereco.Text = Sheets("FILTER").Range("M2").Value
+        crud.numero.Text = Sheets("FILTER").Range("N2").Value
+        crud.complemento.Text = Sheets("FILTER").Range("O2").Value
+        
+        Sheets("FILTER").Visible = False
+        
+
+Application.ScreenUpdating = True
+
+
+
+End Sub

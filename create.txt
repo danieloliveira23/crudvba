@@ -1,0 +1,99 @@
+Sub Create()
+
+If Range("CHECK").Value = 1 Then
+
+
+        linbase = Range("id").Row
+        lin = Range("id").Rows.Count + Range("id").Row
+        
+        Range("Id").Offset(0, 2).NumberFormat = "dd/mm/yyyy"
+        
+        
+        If Range("LAST").Value = 0 Then
+        
+            Cells(linbase, 1).Select
+        
+        Else
+        
+            Cells(lin, 1).Select
+            
+        End If
+        
+        
+        'Some data checks before saving....
+        datecheck = IsDate(crud.data.Text)
+        numbercheck = IsNumeric(crud.numero.Text)
+        
+        If datecheck = False Or crud.nome.Text = "" Or crud.endereco.Text = "" Or crud.numero = "" Or numbercheck = False Then
+        
+            
+            MsgBox "Existe algum dado faltando ou incorreto, favor verificar!", vbCritical
+            
+        Else
+        
+        
+            
+            
+        
+        
+        
+        
+        
+            ActiveCell.Value = Range("LAST").Value + 1
+            Range("LAST").Value = Range("LAST").Value + 1
+            
+            ActiveCell.Offset(0, 1).Value = crud.nome.Text
+            'Method to save as "dd/mm/yy" into the cell, even changing the format the format keeps incorrect as "mm/dd/yyyy"
+            
+            ActiveCell.Offset(0, 2).NumberFormat = "dd/mm/yyyy"
+            'ActiveCell.Offset(0, 2).Value = Left(crud.data.Text, 2) & "/" & Mid(crud.data.Text, 4, 2) & "/" & Right(crud.data.Text, 4)
+            ActiveCell.Offset(0, 2).NumberFormat = "@"
+            ActiveCell.Offset(0, 2).Value = Left(crud.data.Text, 10)
+            ActiveCell.Offset(0, 2).NumberFormat = "dd/mm/yyyy"
+            ActiveCell.Offset(0, 3).Value = crud.endereco.Text
+            ActiveCell.Offset(0, 4).Value = crud.numero.Text
+            ActiveCell.Offset(0, 5).Value = crud.complemento.Text
+            
+            
+            
+            
+            'Unload Me
+            'ActiveCell.Offset(0, 2).Select
+            'Application.SendKeys "{F2}"
+            'Application.SendKeys "{Enter}"
+           
+            
+            crud.cod.Text = ""
+            crud.nome.Text = ""
+            crud.data.Text = ""
+            crud.endereco.Text = ""
+            crud.numero.Text = ""
+            crud.complemento.Text = ""
+            
+            Range("CHECK").Value = 0
+            
+            
+        
+            crud.cod.Value = Range("LAST").Value
+            
+            
+            Range("A6").Select
+            MsgBox "Usuario criado com o id " & crud.cod.Text, vbInformation
+           
+            
+            
+            
+        End If
+        
+        
+        Else
+
+
+
+MsgBox "Favor limpar os dados para continuar !", vbExclamation
+
+End If
+
+
+End Sub
+

@@ -1,0 +1,29 @@
+Sub reset()
+
+
+Dim resul As VbMsgBoxResult
+result = MsgBox("Tem certeza que deseja resetar a base ?", vbYesNo, "Confirmar exlusão")
+
+If result = vbYes Then
+
+Range("A7").Select
+
+x = Range("A7").CurrentRegion.Rows.Count - 1
+
+For i = 1 To x
+
+On Error Resume Next
+Selection.EntireRow.Delete
+On Error GoTo 0
+
+Next
+
+Range("LAST").Value = 0
+MsgBox "Base excluída !", vbInformation
+
+Else
+
+End If
+
+
+End Sub
